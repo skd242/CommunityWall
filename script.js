@@ -5,19 +5,11 @@ function createSubmission(text) {
   submission.classList.add("submission");
   submission.textContent = text;
 
-  // Randomize the position within the viewport
-  const randomX = Math.floor(Math.random() * window.innerWidth);
+  // Randomize the position within the viewport (taking into account 80pt margins)
+  const randomX = Math.floor(Math.random() * (window.innerWidth - 160)) + 80; // Subtract 160 for left and right margins
   const randomY = Math.floor(Math.random() * window.innerHeight);
   submission.style.left = `${randomX}px`;
   submission.style.top = `${randomY}px`;
-
-  // Randomize opacity between 0.5 and 1
-  const randomOpacity = Math.random() * (1 - 0.5) + 0.5;
-  submission.style.opacity = randomOpacity;
-
-  // Randomize z-index for layering
-  const randomZIndex = Math.floor(Math.random() * 10) + 1;
-  submission.style.zIndex = randomZIndex;
 
   // Append the new submission to the body
   document.body.appendChild(submission);
@@ -26,14 +18,17 @@ function createSubmission(text) {
   submission.style.animation = "float 10s infinite alternate ease-in-out";
 }
 
-// Example of creating submissions on load
-createSubmission("What did you eat for breakfast?");
-createSubmission("Did you take a walk today?");
-createSubmission("What was the weather like outside?");
-createSubmission("Have you seen the sunset recently?");
-createSubmission("What song did you listen to this morning?");
-createSubmission("Do you remember your dream last night?");
-createSubmission("What color is the sky right now?");
-createSubmission("How many steps did you walk today?");
-createSubmission("What's the most random thing you thought about today?");
-createSubmission("What does your workspace look like?");
+// Handle form submission
+const form = document.getElementById('submission-form');
+const input = document.getElementById('user-input');
+
+form.addEventListener('submit', function(event) {
+  event.preventDefault(); // Prevent page reload
+  const inputValue = input.value.trim();
+  
+  // Only add the submission if there's text
+  if (inputValue) {
+    createSubmission(inputValue);
+    input.value = ''; // Clear the input field after submission
+  }
+});

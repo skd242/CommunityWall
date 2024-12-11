@@ -1,63 +1,59 @@
+/* Add the font and text styling */
 body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #fff;
-  color: #333;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  position: relative;
+  font-family: 'Suisse Intl Trial', sans-serif; /* Assuming you have the font file imported */
+  font-size: 80pt;
+  line-height: 88pt;
+  color: #111111;
+  overflow: hidden; /* Prevents text overflow from moving off the screen */
 }
 
-.container {
-  position: relative;
-  width: 100%;
-  height: 100%;
-}
-
-.video-room {
+.submission {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #000;
-  opacity: 0.3;
-  z-index: -1;
+  opacity: 0.7; /* Start with lower opacity */
+  will-change: transform, opacity; /* Hint to the browser to optimize for animation */
+}
+/* Keyframes for random movement */
+@keyframes float {
+  0% {
+    transform: translateX(0) translateY(0);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translateX(10px) translateY(5px);
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateX(-10px) translateY(-5px);
+    opacity: 0.6;
+  }
 }
 
-.input-section {
-  position: fixed;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  align-items: center;
-  background-color: #fff;
-  padding: 10px;
-  border-radius: 10px;
-}
-
-.input-section input {
-  padding: 10px;
-  margin-right: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  width: 300px;
-}
-
-.text-wall {
+/* Random floating animation for each submission */
+.submission {
+  animation: float 10s infinite alternate ease-in-out;
   position: absolute;
-  top: 50px;
-  left: 20px;
-  right: 20px;
-  bottom: 80px;
-  overflow-y: auto;
-  color: rgba(0, 0, 0, 0.6);
-  font-size: 14px;
-  font-family: "Courier New", Courier, monospace;
-  white-space: pre-wrap;
-  z-index: 10;
+  font-family: 'Suisse Intl Trial', sans-serif;
+  font-size: 80pt;
+  line-height: 88pt;
+  color: #111111;
+  opacity: 0.7;
+  pointer-events: none; /* Ensures the text doesn't block interactions */
+}
+.submission {
+  position: absolute;
+  font-family: 'Suisse Intl Trial', sans-serif;
+  font-size: 80pt;
+  line-height: 88pt;
+  color: #111111;
+  opacity: 0.7;
+  pointer-events: none;
+  will-change: transform, opacity, z-index;
+}
+
+.submission:nth-child(odd) {
+  opacity: 0.5; /* Slightly more transparent for some */
+}
+
+.submission:nth-child(even) {
+  opacity: 1; /* Full opacity for others */
 }

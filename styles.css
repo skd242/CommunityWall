@@ -1,17 +1,19 @@
-/* Add the font and text styling */
+/* Basic styling for body */
 body {
-  font-family: 'Suisse Intl Trial', sans-serif; /* Assuming you have the font file imported */
+  font-family: 'Suisse Intl Trial', sans-serif; /* Assuming the font is available */
   font-size: 80pt;
   line-height: 88pt;
   color: #111111;
-  overflow: hidden; /* Prevents text overflow from moving off the screen */
+  overflow: hidden; /* Prevents text from overflowing outside the page */
+  margin: 0;
+  padding: 0;
+  height: 100vh; /* Ensures the body covers the full height of the viewport */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
 }
 
-.submission {
-  position: absolute;
-  opacity: 0.7; /* Start with lower opacity */
-  will-change: transform, opacity; /* Hint to the browser to optimize for animation */
-}
 /* Keyframes for random movement */
 @keyframes float {
   0% {
@@ -28,32 +30,25 @@ body {
   }
 }
 
-/* Random floating animation for each submission */
+/* Style for each submission */
 .submission {
+  position: absolute;
+  font-family: 'Suisse Intl Trial', sans-serif;
+  font-size: 80pt;
+  line-height: 88pt;
+  color: #111111;
+  opacity: 0.7;
+  pointer-events: none; /* Prevents interaction with floating text */
+  will-change: transform, opacity, z-index; /* Optimize animation */
   animation: float 10s infinite alternate ease-in-out;
-  position: absolute;
-  font-family: 'Suisse Intl Trial', sans-serif;
-  font-size: 80pt;
-  line-height: 88pt;
-  color: #111111;
-  opacity: 0.7;
-  pointer-events: none; /* Ensures the text doesn't block interactions */
-}
-.submission {
-  position: absolute;
-  font-family: 'Suisse Intl Trial', sans-serif;
-  font-size: 80pt;
-  line-height: 88pt;
-  color: #111111;
-  opacity: 0.7;
-  pointer-events: none;
-  will-change: transform, opacity, z-index;
+  transition: opacity 2s ease-in-out;
 }
 
+/* Randomized opacity for each submission */
 .submission:nth-child(odd) {
-  opacity: 0.5; /* Slightly more transparent for some */
+  opacity: 0.5;
 }
 
 .submission:nth-child(even) {
-  opacity: 1; /* Full opacity for others */
+  opacity: 1;
 }

@@ -20,3 +20,44 @@ function submitText() {
   // Scroll to the bottom of the text wall
   textWall.scrollTop = textWall.scrollHeight;
 }
+function createSubmission(text) {
+  // Create the submission element
+  const submission = document.createElement("div");
+  submission.classList.add("submission");
+  submission.textContent = text;
+  
+  // Set random position within the viewport
+  const randomX = Math.floor(Math.random() * window.innerWidth);
+  const randomY = Math.floor(Math.random() * window.innerHeight);
+  submission.style.left = `${randomX}px`;
+  submission.style.top = `${randomY}px`;
+
+  // Append to the body or container
+  document.body.appendChild(submission);
+
+  // Optionally add the float animation after insertion
+  submission.style.animation = "float 10s infinite alternate ease-in-out";
+}
+function createSubmission(text) {
+  const submission = document.createElement("div");
+  submission.classList.add("submission");
+  submission.textContent = text;
+
+  const randomX = Math.floor(Math.random() * window.innerWidth);
+  const randomY = Math.floor(Math.random() * window.innerHeight);
+  submission.style.left = `${randomX}px`;
+  submission.style.top = `${randomY}px`;
+
+  // Random opacity between 0.5 and 1
+  const randomOpacity = Math.random() * (1 - 0.5) + 0.5;
+  submission.style.opacity = randomOpacity;
+
+  // Random z-index to float over others
+  const randomZIndex = Math.floor(Math.random() * 10) + 1; // Random z-index from 1 to 10
+  submission.style.zIndex = randomZIndex;
+
+  document.body.appendChild(submission);
+
+  // Animation and position for movement
+  submission.style.animation = "float 10s infinite alternate ease-in-out";
+}

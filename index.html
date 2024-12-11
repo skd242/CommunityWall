@@ -3,23 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Time Capsule</title>
+  <title>Submission Page</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="container">
-    <div class="video-room">
-      <!-- Placeholder for your video, add actual video element here -->
-      <video src="video.mp4" autoplay muted loop></video>
-    </div>
-    <div class="text-wall">
-      <!-- Placeholder for floating text -->
-    </div>
-    <div class="input-section">
-      <input type="text" id="user-input" placeholder="Share a thought..." />
-      <button onclick="submitText()">Submit</button>
-    </div>
+  <!-- Text submission form -->
+  <div id="submission-form">
+    <form>
+      <input id="user-input" type="text" placeholder="Enter your submission..." required />
+      <button type="submit">Submit</button>
+    </form>
   </div>
+
+  <!-- Display the clock -->
+  <div id="clock"></div>
+
   <script src="script.js"></script>
 </body>
 </html>

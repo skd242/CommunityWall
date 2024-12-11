@@ -1,19 +1,20 @@
 /* Basic styling for body */
 body {
-  font-family: 'Suisse Intl Trial', sans-serif; /* Assuming the font is available */
+  font-family: 'Suisse Intl Trial', sans-serif;
   font-size: 80pt;
   line-height: 88pt;
   color: #111111;
-  overflow: hidden; /* Prevents text from overflowing outside the page */
+  overflow: hidden;
   margin: 0;
   padding: 0;
-  height: 100vh; /* Ensures the body covers the full height of the viewport */
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
   padding-left: 80pt;
   padding-right: 80pt;
+  background-color: white;
 }
 
 /* Keyframes for random movement */
@@ -39,8 +40,8 @@ body {
   font-size: 80pt;
   line-height: 88pt;
   color: #111111;
-  pointer-events: none; /* Prevents interaction with floating text */
-  will-change: transform, opacity, z-index; /* Optimize animation */
+  pointer-events: none;
+  will-change: transform, opacity, z-index;
   animation: float 10s infinite alternate ease-in-out;
   transition: opacity 2s ease-in-out;
 }
@@ -62,4 +63,14 @@ body {
 .submission:nth-child(6),
 .submission:nth-child(9) {
   opacity: 0.15; /* 10% of submissions 15% opaque */
+}
+
+/* Style for the clock */
+#clock {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 20pt;
+  color: #111111;
 }

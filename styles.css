@@ -12,6 +12,8 @@ body {
   justify-content: center;
   align-items: center;
   position: relative;
+  padding-left: 80pt;
+  padding-right: 80pt;
 }
 
 /* Keyframes for random movement */
@@ -37,18 +39,27 @@ body {
   font-size: 80pt;
   line-height: 88pt;
   color: #111111;
-  opacity: 0.7;
   pointer-events: none; /* Prevents interaction with floating text */
   will-change: transform, opacity, z-index; /* Optimize animation */
   animation: float 10s infinite alternate ease-in-out;
   transition: opacity 2s ease-in-out;
 }
 
-/* Randomized opacity for each submission */
-.submission:nth-child(odd) {
-  opacity: 0.5;
+/* Random opacity distribution */
+.submission:nth-child(1),
+.submission:nth-child(4),
+.submission:nth-child(7) {
+  opacity: 1; /* 70% of submissions fully opaque */
 }
 
-.submission:nth-child(even) {
-  opacity: 1;
+.submission:nth-child(2),
+.submission:nth-child(5),
+.submission:nth-child(8) {
+  opacity: 0.4; /* 20% of submissions 40% opaque */
+}
+
+.submission:nth-child(3),
+.submission:nth-child(6),
+.submission:nth-child(9) {
+  opacity: 0.15; /* 10% of submissions 15% opaque */
 }
